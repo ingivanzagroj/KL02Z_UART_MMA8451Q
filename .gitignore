@@ -5,3 +5,10 @@
 
 # Excluye carpeta FreeRTOS_TAD_logs
 /FreeRTOS_TAD_logs/
+
+# Excluye carpeta temporal Debug/Release
+/ACELEROMETRO_MMA8451Q/Debug/
+/ACELEROMETRO_MMA8451Q/Release/
+
+# Excluye carpeta html de doxygen
+/ACELEROMETRO_MMA8451Q/doxygen/html/
