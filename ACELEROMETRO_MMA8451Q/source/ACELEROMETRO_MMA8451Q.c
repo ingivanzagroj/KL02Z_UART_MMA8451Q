@@ -51,30 +51,8 @@
 #define MMA8451_WHO_AM_I_MEMORY_ADDRESS		0x0D
 
 #define CTRL_REG1_ADRESS 0x2A
-#define CTRL_REG1_ACTIVE 0x00
+#define CTRL_REG1_ACTIVE 0x01
 #define XYZ_DATA_CFG 0x0E
-
-
-/***************************
- * Private Prototypes
- **************************/
-
-
-/***************************
- * External vars
- **************************/
-
-
-/***************************
- * Local vars
- **************************/
-
-
-/***************************
- * Private Source Code
- **************************/
-
-
 /***************************
  * Public Source Code
  **************************/
