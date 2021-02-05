@@ -52,7 +52,7 @@ status_t i2c0MasterInit(uint32_t baud_rate) {
 }
 /*--------------------------------------------*/
 //I2C_ReadAccelRegs(BOARD_ACCEL_I2C_BASEADDR, g_accel_addr_found, ACCEL_STATUS, &status0_value, 1);
-status_t i2c0MasterReadByte(uint8_t *data, uint8_t device_address, int8_t memory_address) {
+status_t i2c0MasterReadByte(uint16_t *data, uint8_t device_address, int8_t memory_address) {
 	i2c_master_transfer_t masterXfer;
 	uint8_t i2c_rx_buffer[1];
 
@@ -72,7 +72,7 @@ status_t i2c0MasterReadByte(uint8_t *data, uint8_t device_address, int8_t memory
 }
 /*--------------------------------------------*/
 //I2C_WriteAccelReg(BOARD_ACCEL_I2C_BASEADDR, g_accel_addr_found, write_reg, databyte);
-status_t i2c0MasterWriteByte(uint8_t *data, uint8_t device_address, int8_t reg_addr, uint8_t value){
+status_t i2c0MasterWriteByte(uint16_t *data, uint8_t device_address, int8_t reg_addr, uint8_t value){
 //	/* subAddress = 0x01, data = g_master_txBuff - write to slave.
 //	 start + slaveaddress(w) + subAddress + length of data buffer + data buffer + stop*/
 
