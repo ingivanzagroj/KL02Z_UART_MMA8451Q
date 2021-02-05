@@ -41,12 +41,18 @@
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
 
+#include "sdk_hal_uart0.h"
+#include "sdk_hal_i2c0.h"
+
 /* TODO: insert other definitions and declarations here. */
 
 /*
  * @brief   Application entry point.
  */
 int main(void) {
+
+	status_t status;
+    uint8_t nuevo_byte_uart;
 
   	/* Init board hardware. */
     BOARD_InitBootPins();
@@ -57,16 +63,17 @@ int main(void) {
     BOARD_InitDebugConsole();
 #endif
 
-    PRINTF("Hello World\n");
+    (void)uart0Inicializar(115200);	//115200bps
 
-    /* Force the counter to be placed into memory. */
-    volatile static int i = 0 ;
-    /* Enter an infinite loop, just incrementing a counter. */
     while(1) {
-        i++ ;
-        /* 'Dummy' NOP to allow source level single stepping of
-            tight while() loop */
-        __asm volatile ("nop");
+    	if(uart0CuantosDatosHayEnBuffer()>0){
+    	    		status=uart0LeerByteDesdeBuffer(&nuevo_byte_uart);
+    	    		if(status==kStatus_Success){
+    	    			printf("dato:%c\r\n",nuevo_byte_uart);
+    	    		}else{
+    	    			printf("error\r\n");
+    	    		}
+    	}
     }
     return 0 ;
 }
